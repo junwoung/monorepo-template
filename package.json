@@ -1,0 +1,18 @@
+{
+  "name": "root",
+  "private": true,
+  "workspaces": [
+    "packages/*"
+  ],
+  "scripts": {
+    "reset": "rm -rf packages/**/dist",
+    "setup": "rm -rf packages/**/dist node_modules packages/**/node_modules/ && yarn",
+    "build": "yarn workspaces run build",
+    "build-utils": "cd packages/utils && yarn build",
+    "build-components": "cd packages/components && yarn build"
+  },
+  "devDependencies": {
+    "lerna": "^5.5.1"
+  },
+  "npmClient": "yarn"
+}

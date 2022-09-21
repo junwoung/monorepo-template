@@ -1,0 +1,17 @@
+{
+  "compilerOptions": {
+    "target": "es2015",
+    "module": "commonjs",
+    "declaration": true /* 生成相关的 '.d.ts' 文件。 */,
+    "declarationDir": "./dist/types" /* '.d.ts' 文件输出目录 */,
+    "esModuleInterop": true,
+    "forceConsistentCasingInFileNames": true,
+    "strict": true,
+    "skipLibCheck": true,
+    "allowJs": true,
+    "rootDir": "./",
+    "jsx": "react-jsx"
+  },
+  "includes": ["./src"],
+  "exclude": ["node_modules", "dist"]
+}
