@@ -1,18 +1,22 @@
 import typescript from 'rollup-plugin-typescript2';
-import pkg from './package.json';
 
 export default {
-  input: 'src/index.ts', // 入口文件
+  input: 'src/index.ts',
   output: [
     {
-      file: pkg.main, // 输出文件名称
-      format: 'cjs', // 输出模块格式
-      sourcemap: false, // 是否输出sourcemap
+      dir: 'dist/lib',
+      format: 'cjs',
+      sourcemap: false,
+      // 按文件粒度打包
+      preserveModules: true,
+      assetFileNames: () => '[name].[ext]',
     },
     {
-      file: pkg.module,
+      dir: 'dist/es',
       format: 'esm',
       sourcemap: false,
+      preserveModules: true,
+      assetFileNames: () => '[name].[ext]',
     },
     // {
     //   file: pkg.umd,

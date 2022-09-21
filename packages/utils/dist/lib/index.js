@@ -2,13 +2,10 @@
 
 Object.defineProperty(exports, '__esModule', { value: true });
 
-const multiple = (...numbers) => {
-    return numbers.reduce((prev, cur) => prev * cur, 1);
-};
+var multiple = require('./multiple.js');
+var sum = require('./sum.js');
 
-const sum = (...numbers) => {
-    return numbers.reduce((prev, cur) => prev + cur, 0);
-};
 
-exports.multiple = multiple;
-exports.sum = sum;
+
+exports.multiple = multiple.multiple;
+exports.sum = sum.sum;
