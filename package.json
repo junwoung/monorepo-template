@@ -7,9 +7,9 @@
   "scripts": {
     "reset": "rm -rf packages/**/dist",
     "setup": "rm -rf packages/**/dist node_modules packages/**/node_modules/ && yarn",
-    "build": "yarn workspaces run build",
-    "build-utils": "cd packages/utils && yarn build",
-    "build-components": "cd packages/components && yarn build"
+    "build": "yarn reset && yarn workspaces run build",
+    "build-utils": "cd packages/utils && rm -rf dist && yarn build",
+    "build-components": "cd packages/components && rm -rf dist && yarn build"
   },
   "devDependencies": {
     "lerna": "^5.5.1"

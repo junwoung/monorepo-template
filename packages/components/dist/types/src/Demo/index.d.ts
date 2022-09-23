@@ -1,4 +1,5 @@
 import React from 'react';
+import './index.css';
 export declare enum Gender {
     male = 0,
     female = 1

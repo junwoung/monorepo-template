@@ -1,4 +1,5 @@
 import React from 'react';
+import './index.css';
 
 export enum Gender {
   male,
@@ -15,7 +16,7 @@ export const Demo: React.FC<DemoProps> = ({ name, age, gender }) => {
   return (
     <>
       <div>demo component</div>
-      <div>name: {name}</div>
+      <div className="name">name: {name}</div>
       <div>age: {age}</div>
       <div>gender: {gender === Gender.male ? '男' : '女'}</div>
     </>
