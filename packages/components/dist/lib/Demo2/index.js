@@ -1,1 +1,13 @@
-"use strict";Object.defineProperty(exports,"__esModule",{value:!0});var e=require("../_virtual/_tslib.js"),s=require("react/jsx-runtime");exports.Demo2=function(r){var a=r.name,i=r.age;return s.jsxs(s.Fragment,{children:[s.jsx("div",{children:"demo2 component"}),s.jsxs("div",e.__assign({className:"name"},{children:["name: ",a]})),s.jsxs("div",e.__assign({className:"age"},{children:["age: ",i]}))]})};
+'use strict';
+
+Object.defineProperty(exports, '__esModule', { value: true });
+
+var _tslib = require('../_virtual/_tslib.js');
+var jsxRuntime = require('react/jsx-runtime');
+
+var Demo2 = function (_a) {
+    var name = _a.name, age = _a.age;
+    return (jsxRuntime.jsxs(jsxRuntime.Fragment, { children: [jsxRuntime.jsx("div", { children: "demo2 component" }), jsxRuntime.jsxs("div", _tslib.__assign({ className: 'name' }, { children: ["name: ", name] })), jsxRuntime.jsxs("div", _tslib.__assign({ className: 'age' }, { children: ["age: ", age] }))] }));
+};
+
+exports.Demo2 = Demo2;

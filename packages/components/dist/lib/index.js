@@ -1,1 +1,15 @@
-"use strict";Object.defineProperty(exports,"__esModule",{value:!0});var e=require("./Demo/index.js"),r=require("./Demo2/index.js");exports.Demo=e.Demo,Object.defineProperty(exports,"Gender",{enumerable:!0,get:function(){return e.Gender}}),exports.Demo2=r.Demo2;
+'use strict';
+
+Object.defineProperty(exports, '__esModule', { value: true });
+
+var index = require('./Demo/index.js');
+var index$1 = require('./Demo2/index.js');
+
+
+
+exports.Demo = index.Demo;
+Object.defineProperty(exports, 'Gender', {
+	enumerable: true,
+	get: function () { return index.Gender; }
+});
+exports.Demo2 = index$1.Demo2;

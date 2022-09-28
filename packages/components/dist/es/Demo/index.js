@@ -1,1 +1,14 @@
-import{__assign as e}from"../_virtual/_tslib.js";import{jsxs as r,Fragment as n,jsx as a}from"react/jsx-runtime";var i;!function(e){e[e.male=0]="male",e[e.female=1]="female"}(i||(i={}));var m=function(m){var l=m.name,d=m.age,t=m.gender;return r(n,{children:[a("div",{children:"demo component"}),r("div",e({className:"name"},{children:["name: ",l]})),r("div",{children:["age: ",d]}),r("div",{children:["gender: ",t===i.male?"男":"女"]})]})};export{m as Demo,i as Gender};
+import { __assign } from '../_virtual/_tslib.js';
+import { jsxs, Fragment, jsx } from 'react/jsx-runtime';
+
+var Gender;
+(function (Gender) {
+    Gender[Gender["male"] = 0] = "male";
+    Gender[Gender["female"] = 1] = "female";
+})(Gender || (Gender = {}));
+var Demo = function (_a) {
+    var name = _a.name, age = _a.age, gender = _a.gender;
+    return (jsxs(Fragment, { children: [jsx("div", { children: "demo component" }), jsxs("div", __assign({ className: "name" }, { children: ["name: ", name] })), jsxs("div", { children: ["age: ", age] }), jsxs("div", { children: ["gender: ", gender === Gender.male ? '男' : '女'] })] }));
+};
+
+export { Demo, Gender };
