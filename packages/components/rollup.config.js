@@ -1,5 +1,7 @@
 import typescript from 'rollup-plugin-typescript2';
 import postcss from 'rollup-plugin-postcss';
+import commonjs from 'rollup-plugin-commonjs';
+import cssnano from 'cssnano';
 import path from 'path';
 
 export default {
@@ -13,7 +15,7 @@ export default {
       preserveModules: true,
       assetFileNames: ({ name }) => {
         const { ext, dir, base } = path.parse(name);
-        if (ext !== '.css') return '[name].[ext]';
+        if (ext !== 'css') return '[name].[ext]';
         return path.join(dir, 'style', base);
       }
     },
@@ -24,7 +26,7 @@ export default {
       preserveModules: true,
       assetFileNames: ({ name }) => {
         const { ext, dir, base } = path.parse(name);
-        if (ext !== '.css') return '[name].[ext]';
+        if (ext !== 'css') return '[name].[ext]';
         return path.join(dir, 'style', base);
       }
     },
@@ -36,7 +38,11 @@ export default {
     // },
   ],
   plugins: [
-    postcss({ extract: true }),
+    commonjs(),
+    postcss({
+      extract: true,
+      // plugins: [cssnano()],
+    }),
     typescript({
       tsconfigOverride: {
         compilerOptions: {

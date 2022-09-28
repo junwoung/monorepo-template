@@ -1,3 +1,10 @@
 .name {
   color: red;
 }
+.age {
+  font-weight: bold;
+}
+
+.name {
+  color: blue;
+}
