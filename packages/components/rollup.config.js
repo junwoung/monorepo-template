@@ -12,23 +12,23 @@ export default {
       format: 'cjs',
       sourcemap: false,
       // 按文件粒度打包
-      preserveModules: true,
-      assetFileNames: ({ name }) => {
-        const { ext, dir, base } = path.parse(name);
-        if (ext !== 'css') return '[name].[ext]';
-        return path.join(dir, 'style', base);
-      }
+      // preserveModules: true,
+      // assetFileNames: ({ name }) => {
+      //   const { ext, dir, base } = path.parse(name);
+      //   if (ext !== 'css') return '[name].[ext]';
+      //   return path.join(dir, 'style', base);
+      // }
     },
     {
       dir: 'dist/es',
       format: 'esm',
       sourcemap: false,
-      preserveModules: true,
-      assetFileNames: ({ name }) => {
-        const { ext, dir, base } = path.parse(name);
-        if (ext !== 'css') return '[name].[ext]';
-        return path.join(dir, 'style', base);
-      }
+      // preserveModules: true,
+      // assetFileNames: ({ name }) => {
+      //   const { ext, dir, base } = path.parse(name);
+      //   if (ext !== 'css') return '[name].[ext]';
+      //   return path.join(dir, 'style', base);
+      // }
     },
     // {
     //   file: pkg.umd,
@@ -40,7 +40,7 @@ export default {
   plugins: [
     commonjs(),
     postcss({
-      extract: true,
+      // extract: true,
       // plugins: [cssnano()],
     }),
     typescript({
