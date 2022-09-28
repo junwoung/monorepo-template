@@ -1,0 +1,1 @@
+import{__assign as e}from"../_virtual/_tslib.js";import{jsxs as r,Fragment as a,jsx as i}from"react/jsx-runtime";var n=function(n){var m=n.name,t=n.age;return r(a,{children:[i("div",{children:"demo2 component"}),r("div",e({className:"name"},{children:["name: ",m]})),r("div",e({className:"age"},{children:["age: ",t]}))]})};export{n as Demo2};

@@ -1,4 +1,5 @@
 .age {
+  display: flex;
   font-weight: bold;
 }
 
