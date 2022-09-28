@@ -1,5 +1,6 @@
 import typescript from 'rollup-plugin-typescript2';
 import postcss from 'rollup-plugin-postcss';
+import path from 'path';
 
 export default {
   input: 'src/index.ts',
@@ -9,15 +10,23 @@ export default {
       format: 'cjs',
       sourcemap: false,
       // 按文件粒度打包
-      // preserveModules: true,
-      // assetFileNames: () => '[name].[ext]',
+      preserveModules: true,
+      assetFileNames: ({ name }) => {
+        const { ext, dir, base } = path.parse(name);
+        if (ext !== '.css') return '[name].[ext]';
+        return path.join(dir, 'style', base);
+      }
     },
     {
       dir: 'dist/es',
       format: 'esm',
       sourcemap: false,
-      // preserveModules: true,
-      // assetFileNames: () => '[name].[ext]',
+      preserveModules: true,
+      assetFileNames: ({ name }) => {
+        const { ext, dir, base } = path.parse(name);
+        if (ext !== '.css') return '[name].[ext]';
+        return path.join(dir, 'style', base);
+      }
     },
     // {
     //   file: pkg.umd,
@@ -27,9 +36,7 @@ export default {
     // },
   ],
   plugins: [
-    postcss({
-      exclude: 'node_modules/**',
-    }),
+    postcss({ extract: true }),
     typescript({
       tsconfigOverride: {
         compilerOptions: {
