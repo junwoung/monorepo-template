@@ -1,14 +1,1 @@
-import { __assign } from '../_virtual/_tslib.js';
-import { jsxs, Fragment, jsx } from 'react/jsx-runtime';
-
-var Gender;
-(function (Gender) {
-    Gender[Gender["male"] = 0] = "male";
-    Gender[Gender["female"] = 1] = "female";
-})(Gender || (Gender = {}));
-var Demo = function (_a) {
-    var name = _a.name, age = _a.age, gender = _a.gender;
-    return (jsxs(Fragment, { children: [jsx("div", { children: "demo component" }), jsxs("div", __assign({ className: "name" }, { children: ["name: ", name] })), jsxs("div", { children: ["age: ", age] }), jsxs("div", { children: ["gender: ", gender === Gender.male ? '男' : '女'] })] }));
-};
-
-export { Demo, Gender };
+import{jsxs as e,Fragment as n,jsx as r}from"react/jsx-runtime";var a,t=function(){return t=Object.assign||function(e){for(var n,r=1,a=arguments.length;r<a;r++)for(var t in n=arguments[r])Object.prototype.hasOwnProperty.call(n,t)&&(e[t]=n[t]);return e},t.apply(this,arguments)};!function(e){e[e.male=0]="male",e[e.female=1]="female"}(a||(a={}));var i=function(i){var c=i.name,l=i.age,o=i.gender;return e(n,{children:[r("div",{children:"demo component"}),e("div",t({className:"name"},{children:["name: ",c]})),e("div",{children:["age: ",l]}),e("div",{children:["gender: ",o===a.male?"男":"女"]})]})};export{i as Demo,a as Gender};

@@ -1,61 +1,20 @@
-import typescript from 'rollup-plugin-typescript2';
-import postcss from 'rollup-plugin-postcss';
-import commonjs from 'rollup-plugin-commonjs';
-import cssnano from 'cssnano';
-import autoprefixer from 'autoprefixer';
-import { terser } from 'rollup-plugin-terser';
 import path from 'path';
+import fs from 'fs';
+import { createModuleConfig } from './buildConfig/createModuleConfig';
+import { createStyleConfig } from './buildConfig/createStyleConfig';
 
-export default {
-  input: 'src/index.ts',
-  output: [
-    {
-      dir: 'dist/lib',
-      format: 'cjs',
-      sourcemap: false,
-      // 按文件粒度打包
-      preserveModules: true,
-      assetFileNames: ({ name }) => {
-        const { ext, dir, base } = path.parse(name);
-        if (ext !== 'css') return '[name].[ext]';
-        return path.join(dir, 'style', base);
-      }
-    },
-    {
-      dir: 'dist/es',
-      format: 'esm',
-      sourcemap: false,
-      preserveModules: true,
-      assetFileNames: ({ name }) => {
-        const { ext, dir, base } = path.parse(name);
-        if (ext !== 'css') return '[name].[ext]';
-        return path.join(dir, 'style', base);
-      }
-    },
-    // {
-    //   file: pkg.umd,
-    //   format: 'umd',
-    //   name: 'myUtils', // umd模块名称，相当于一个命名空间，会自动挂载到window下面
-    //   sourcemap: false,
-    // },
-  ],
-  plugins: [
-    commonjs(),
-    postcss({
-      extract: 'css/index.css',
-      plugins: [
-        cssnano(),
-        autoprefixer()
-      ],
-    }),
-    typescript({
-      tsconfigOverride: {
-        compilerOptions: {
-          module: 'ESNext',
-        },
-      },
-      useTsconfigDeclarationDir: true, // 使用tsconfig中的声明文件目录配置
-    }),
-    terser(),
-  ],
-};
+const entry = 'src/index.ts'
+const componentsDir = 'src'
+const componentsName = fs.readdirSync(path.resolve(componentsDir)).filter(item => item !== 'index.ts');
+
+const configs = ['es', 'cjs'].reduce((prev, cur) => {
+  const buildTypeConfig = [
+    // 编译入口文件
+    createModuleConfig([entry], cur),
+    // 单独编译每个模块
+    ...componentsName.map(moduleName => createStyleConfig(moduleName, cur))
+  ];
+  return [...prev, ...buildTypeConfig]
+}, []);
+
+export default configs;
