@@ -1,6 +1,6 @@
 {
   "name": "template-demo-components",
-  "version": "0.0.8",
+  "version": "0.1.0",
   "description": "monorepo形式开发通用components仓库",
   "main": "dist/es/index.js",
   "cjs": "dist/cjs/index.js",
